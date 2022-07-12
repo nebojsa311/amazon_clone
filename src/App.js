@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
+import Payment from "./Payment"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Checkout from "./Checkout";
 import Login from "./Login";
@@ -13,7 +14,6 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged( authUser => {
-      console.log("The user is >>> ");
       if (authUser) {
         dispatch({
           type: "SET_USER",
@@ -35,6 +35,7 @@ function App() {
           <Route path="/" element={[<Header />, <Home />]} />
           <Route path="/checkout" element={[<Header />, <Checkout />]} />
           <Route path="/login" element={<Login />} />
+          <Route path="/payment" element={[<Header />, <Payment />]} />
         </Routes>
       </div>
     </Router>
